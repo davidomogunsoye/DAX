@@ -1,0 +1,29 @@
+Data Task (Props to the necessary copyright)
+
+In a Reward and Recognition Programme, Peugeot ‘Business Sales Executives’ are rewarded for the vehicles they sell. In order to qualify for the rewards, 
+they have to become a Peugeot Certified Seller by completing both ‘Accreditation’ and ‘e-Learning’ trainings.
+
+Data Sources:
+•	User Data: all the users ever registered on the Learning Management System (Active users are current ones we are working with).
+•	Accreditation Report: all the courses in the Accreditation curriculum and the status of each course. 
+      o	For 100% completion of the curriculum the delegate needs to complete all 9 courses. 
+      o	Columns with the same name are equivalent of the same course and there is only one piece of data in each row for the equivalent columns.
+      o	The Status of Completed (Equivalent) or Completed or Exempt have passed the course, all other Status’ are required to complete the course.
+      o	If the ‘User Last Access’ date is between 2017-2019 then they have to be marked 100% for Accreditation and e-Learning completion
+•	e-Learning: The percentage of completion of e-Learning curriculum
+•	Sales Data:
+  o	‘CHASIS NUMBER’ is the unique identifier for each vehicle
+  o	Qualifying CHASIS for the reward: need to have a suffix, STATUS = 8-REGISTERED, FLEET CODE: AK581, DE248, TR124, ZZ050
+  o	Reward amount for each qualifying CHASIS is £20 and is £100 for any New 2008 and 3008 (column C) sold in Sep (column H)
+  
+Present a report with the data provided (preferably using Power Query and DAX) that contains:
+1.	A Pivot table that shows by user and dealer code:
+    a.	The completion percentage for Accreditation curriculum
+    b.	The certified Business Sales Executives (completed both Accreditation and e-Learning)
+    c.	Total Rewards for each Business Sales Executives
+2.	A graph that shows:
+  a.	The percentage of Business Sales Executives that have completed Accreditation
+  b.	The percentage of Business Sales Executives that have completed e-Learning
+  c.	The percentage of Business Sales Executives that are Certified
+  d.	The percentage of Business Sales Executives that have completed: VB02.2, VB03.1 and VB03.2
+3.	Top 5 sellers showing their total reward and whether they are certified
