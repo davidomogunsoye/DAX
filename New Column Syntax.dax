@@ -12,3 +12,8 @@
 //Column: e.c.status (elearning.completion.status)
 
 = if([e-Learning Completion %] = 1, "Completed", "Not Completed")
+
+//in the user data table
+//Column: Curriculum Completion Rate 
+
+= LOOKUPVALUE(Accreditation[Curriculum Completion Rate],Accreditation[User ID],[User ID],0)
