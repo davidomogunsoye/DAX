@@ -17,3 +17,19 @@
 //Column: Curriculum Completion Rate 
 
 = LOOKUPVALUE(Accreditation[Curriculum Completion Rate],Accreditation[User ID],[User ID],0)
+
+//Column: elearning completion 
+
+= ROUNDUP(LOOKUPVALUE('e-Learning'[e-Learning Completion %],'e-Learning'[User ID],[User ID],0), 2)
+
+//Column: elearn & curriculum 
+
+= if(And([Curriculum Completion Rate] = 100, [elearning completion] = 1), "Both Completed", "Not Completed")
+
+//Column: E.Status 
+
+= IF(And([User Last Access] > 01/01/2017, [User Last Access] < 31/12/2019), "Exempt", "Not Exempt")
+
+//Column: Certifaction Status 
+
+= if([E.Status] = "Exempt", "Certified", if([elearn & curriculum] = "Both Completed", "Certified", "Not Certified"))
