@@ -26,10 +26,24 @@
 
 = if(And([Curriculum Completion Rate] = 100, [elearning completion] = 1), "Both Completed", "Not Completed")
 
-//Column: E.Status 
+//Column: E.Status (Exemption Status)
 
 = IF(And([User Last Access] > 01/01/2017, [User Last Access] < 31/12/2019), "Exempt", "Not Exempt")
 
 //Column: Certifaction Status 
 
 = if([E.Status] = "Exempt", "Certified", if([elearn & curriculum] = "Both Completed", "Certified", "Not Certified"))
+
+
+//in the Sales Data table
+//Column: Q.Chassis  (Qualifying Chassis)
+
+= IF(AND(NOT(ISBLANK([*Suffix])), [STATUS] = "8-REGISTERED"), IF( [FLEET CODE] IN {"AK581", "DE248" , "TR124", "ZZ050"}, "Qualified", "N/Q"), "N/Q")
+
+//Column: Q.Family (Qualifying Status)
+
+= if(and( [FAMILY] in {"New 2008", "3008"}, [STATUS DATE_Month] = "SEP") , "Qualified", "N/Q")
+
+//Column: Reward 
+
+= if([Q.Family] = "Qualified", 100, if([Q.Chassis] = "Qualified", 20, 0))
