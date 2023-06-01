@@ -1,5 +1,14 @@
--- The following dax formulae were used to create new columns to aid in the analysis as required in the task file. 
---In the Accreditation table
---Column: 
+//The following dax formulae were used to create new columns to aid in the analysis as required in the task file. 
+//In the Accreditation table 
+//Column: Curriculum Completion Rate 
 
-Curriculum Completion Rate = ROUNDUP(((([VB01] + [VB02.1] + [VB02.2] + [VB03.1] + [VB03.2] + [VB04] + [VB05] + [VB06] + [VB07]) / 9) * 100), 2)
+= ROUNDUP(((([VB01] + [VB02.1] + [VB02.2] + [VB03.1] + [VB03.2] + [VB04] + [VB05] + [VB06] + [VB07]) / 9) * 100), 2)
+
+//Column: C.Status (Completion.Status)
+
+= if([Curriculum Completion Rate] = 100, "Completed", "Not Completed")
+
+//in the e-Learning table
+//Column: e.c.status (elearning.completion.status)
+
+= if([e-Learning Completion %] = 1, "Completed", "Not Completed")
