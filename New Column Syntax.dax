@@ -1,0 +1,5 @@
+-- The following dax formulae were used to create new columns to aid in the analysis as required in the task file. 
+--In the Accreditation table
+--Column: 
+
+Curriculum Completion Rate = ROUNDUP(((([VB01] + [VB02.1] + [VB02.2] + [VB03.1] + [VB03.2] + [VB04] + [VB05] + [VB06] + [VB07]) / 9) * 100), 2)
